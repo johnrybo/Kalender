@@ -4,39 +4,45 @@ function main() {
   fetchDaysFromApi();
 }
 
+// Hämtar aktuell månad och år
+const today = new Date();
+let year = today.getFullYear();
+let month = today.getMonth() + 1;
+
+// Nånting
 async function fetchDaysFromApi() {
-  
-  let year = 2020;
-  let month = 11;
-  let days = await testFunction(year, month);
+  let days = await getDays(year, month);
+  buildCalendar(days);
 
-  let nextMonth = document.getElementById('nextMonth');
-  nextMonth.addEventListener('click', nextMonthFuction);
-
-  async function testFunction(year, month) {
-    let url = `https://sholiday.faboul.se/dagar/v2.1/${year}/${month}`;
-    const result = await fetch(url);
-    const data = await result.json();
-    return data;
+  let nextMonth = document.getElementById("nextMonth");
+  nextMonth.addEventListener("click", goToNextMonth);
 }
 
-function nextMonthFuction() {
-
-    testFunction(year, month);
-    
-    url = `https://sholiday.faboul.se/dagar/v2.1/${year}/${month++}`
-    console.log(url);
+// Hämtar dagar från API
+async function getDays(year, month) {
+  let url = `https://sholiday.faboul.se/dagar/v2.1/${year}/${month}`;
+  const result = await fetch(url);
+  const data = await result.json();
+  return data;
 }
 
-    console.log(days);
+// Går till nästa månad
+async function goToNextMonth() {
+  month++;
+  let days = await getDays(year, month);
+  buildCalendar(days);
+}
 
+// Bygger upp kalendern
+function buildCalendar(days) {
+  for (const day of days.dagar) {
 
- function buildCalendar(days) {
-    for (const day of days.dagar) {
-        console.log(day);
-        let newDay = document.createElement('div');
-        let main = document.querySelector('main');
-        main.append(newDay);
-      }
- }
+    console.log(day);
+
+    let newDay = document.createElement("div");
+    newDay.innerHTML = day.datum;
+
+    let main = document.querySelector("main");
+    main.append(newDay);
+  }
 }
