@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 5rem auto;
+    grid-template-columns: 15rem auto;
+    grid-template-areas: 
+    "header header"
+    "aside main";
+}
+
+header {
+    grid-area: header;
+    background-color: purple;
+}
+
+aside {
+    grid-area: aside;
+    background-color: thistle;
+}
+
+.todoList {
+    list-style-type: none;
+}
+
+main {
+    grid-area: main;
+    height: 100%;
+    gap: .5rem;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+main div {
+    height: 5rem;
+    background-color: blue;
+}
