@@ -1,0 +1,9 @@
+@media (max-width: 400px) {
+
+    main {
+        display: none;
+    }
+    header {
+        display: none;
+    }
+}

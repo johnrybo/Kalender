@@ -6,20 +6,29 @@
 body {
     display: grid;
     grid-template-rows: 5rem auto;
-    grid-template-columns: 15rem auto;
+    grid-template-columns: 17rem auto;
     grid-template-areas: 
-    "header header"
+    "aside header"
     "aside main";
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 2rem;
+    /*box-shadow: 0 1rem 1rem lightgray;*/
 }
 
 header {
     grid-area: header;
-    background-color: purple;
+    background-color: #F8F8F8;
+    text-align: center;
+    color: #A36BFF;
+    padding-top: 1rem;
+    margin-bottom: .5rem;
 }
 
 aside {
     grid-area: aside;
-    background-color: thistle;
+    background-color: #E6D7FF;
+    padding: 1rem;
 }
 
 .todoList {
@@ -36,6 +45,9 @@ main {
 }
 
 main div {
-    height: 5rem;
-    background-color: cornflowerblue;
+    height: 4rem;
+    background-color: #F8F8F8;
+    padding: .5rem;
+    font-size: .7rem;
+    color: grey;
 }
