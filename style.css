@@ -20,6 +20,8 @@ header {
 aside {
     grid-area: aside;
     background-color: thistle;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
 .todoList {
