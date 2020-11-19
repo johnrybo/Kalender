@@ -25,6 +25,14 @@ header {
     margin-bottom: .5rem;
 }
 
+h1 {
+    display: inline;
+}
+
+#nextMonth {
+    cursor: pointer;
+}
+
 aside {
     grid-area: aside;
     background-color: #E6D7FF;
