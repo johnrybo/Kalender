@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./mobile.css">
     <script src="./script.js"></script>
+    <script src="./todos.js"></script>
 </head>
 <body>
     <header>
@@ -24,11 +25,15 @@
         <h3>WELCOME</h3>
         <h1 id="dayOfTheWeek"></h1>
         <h2 id="dateAndTime"></h2>
-        <input type="text">
-        <button>Lägg till todo-listan</button>
 
-        <ul class="todoList">Listan</ul>
-        <li>1</li>
+        <form id="todoForm">
+            <input type="date" id="dateInput" placeholder="Date">
+            <input type="text" id="textInput" placeholder="Textytext...">
+            <button type="submit" id="addTodo">+</button>
+        </form>
+        
+
+        <ul id="todoList"></ul>
     </aside>
 
     <main>

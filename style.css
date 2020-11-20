@@ -61,8 +61,36 @@ aside {
     padding: 1rem;
 }
 
-.todoList {
+#todoForm {
+    margin-top: 1rem;
+}
+
+#todoForm > * {
+    margin-bottom: 1rem;
+}
+
+#dateInput {
+    padding: .5rem;
+}
+
+#textInput {
+    padding: .5rem;
+    border: none;
+}
+
+#addTodo {
+    padding: .5rem;
+    border: none;
+}
+
+#todoList {
     list-style-type: none;
+}
+
+.todoListItemStyle {
+    color: purple;
+    padding: .5rem;
+    border: solid 1px purple;
 }
 
 main {
