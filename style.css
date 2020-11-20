@@ -5,7 +5,7 @@
 
 body {
     display: grid;
-    grid-template-rows: 5rem auto;
+    /*grid-template-rows: 5rem auto;*/
     grid-template-columns: 17rem auto;
     grid-template-areas: 
     "aside header"
@@ -16,15 +16,27 @@ body {
     /*box-shadow: 0 1rem 1rem lightgray;*/
 }
 
-header, p {
+.headline, .material-icons {
+    color: #A36BFF;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
     grid-area: header;
     background-color: #F8F8F8;
-    text-align: center;
-    color: #A36BFF;
     padding-top: 1rem;
     margin-bottom: .5rem;
-    font-size: 2rem;
-    display: inline;
+}
+
+.weekday {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 h1 {
@@ -46,7 +58,6 @@ h3 {
     font-weight: 200;
     font-size: 1.8rem;
 }
-
 
 
 #nextMonth {
@@ -128,9 +139,4 @@ main div {
     padding: .5rem;
     font-size: .7rem;
     color: grey;
-}
-
-.weekday {
-    height: 2rem;
-    background-color: hotpink;
 }
