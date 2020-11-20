@@ -37,6 +37,8 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    color: #826CA6;
+
 }
 
 h1 {
