@@ -58,6 +58,7 @@ function buildCalendar(days) {
   //loop skapa tomma divvar för veckodagarna
     for (let i = 0; i < weekday -1; i++) {
       let emptyDay = document.createElement("div");
+      emptyDay.style.backgroundColor = "white";
       main.append(emptyDay);
     }
 
