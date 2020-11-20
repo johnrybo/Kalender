@@ -13,19 +13,16 @@ let year = today.getFullYear();
 let month = today.getMonth() + 1;
 
 
-// Visar aktuell dag, månad och tid men borde nog sättas i en egen funktion?
+// Visar aktuellt datum 
 function welcomeUser() {
   document.getElementById("dateAndTime").innerHTML = today.toLocaleString();
 }
 
+// Visar aktuell veckodag
 function daysToString() {
   const daysOfWeek = ['Sunday', 'Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-  return daysOfWeek[today.getDay()]
-  
+  document.getElementById('dayOfTheWeek').innerHTML = daysOfWeek[today.getDay()];
 }
-
-console.log(daysToString()) 
 
 // Nånting
 async function fetchDaysFromApi() {
