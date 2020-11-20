@@ -104,6 +104,9 @@ aside {
 
 #addTodo {
     padding: .5rem;
+    background-color: transparent;
+    color: #826CA6;
+    font-size: 2rem;
     border: none;
     width: 15%;
 }
