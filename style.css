@@ -35,6 +35,8 @@ h1 {
 
 aside {
     grid-area: aside;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
     background-color: #E6D7FF;
     padding: 1rem;
 }
