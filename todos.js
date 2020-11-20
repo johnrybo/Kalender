@@ -29,4 +29,10 @@ function newListItem(event) {
     todoList.appendChild(todoListItem);
     todoListItem.appendChild(dateTextNode);
     todoListItem.appendChild(textNode);
+
+    let newDay = document.querySelectorAll('.newDay');
+    if (newDay.innerHTML = dateTextNode) {
+        newDay.appendChild(textNode);
+    }
+
   }
