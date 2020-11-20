@@ -3,10 +3,14 @@
     #calendarContainer {
         height: 100vh;
         width: 100vw;
+        grid-template-rows: 1fr;
         grid-template-columns: 1fr;
         grid-template-areas: 
-        "header"
         "aside";
+    }
+
+    header {
+        display: none;
     }
 
     main {
