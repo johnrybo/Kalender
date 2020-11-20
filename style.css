@@ -4,16 +4,22 @@
 }
 
 body {
+    height: 100vh;
+    width: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calendarContainer {
     display: grid;
     grid-template-rows: 5rem auto;
     grid-template-columns: 17rem auto;
     grid-template-areas: 
     "aside header"
     "aside main";
-    justify-content: center;
     font-family: 'Roboto', sans-serif;
-    margin-top: 2rem;
-    /*box-shadow: 0 1rem 1rem lightgray;*/
+    box-shadow: 0 1rem 1rem lightgray;
 }
 
 header, p {
