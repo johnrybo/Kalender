@@ -4,16 +4,22 @@
 }
 
 body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calendarContainer {
     display: grid;
     /*grid-template-rows: 5rem auto;*/
     grid-template-columns: 17rem auto;
     grid-template-areas: 
     "aside header"
     "aside main";
-    justify-content: center;
     font-family: 'Roboto', sans-serif;
-    margin-top: 2rem;
-    /*box-shadow: 0 1rem 1rem lightgray;*/
+    box-shadow: 0 1rem 1rem lightgray;
 }
 
 .headline, .material-icons {
@@ -109,8 +115,12 @@ aside {
 
 #addTodo {
     padding: .5rem;
+    background-color: transparent;
+    color: #826CA6;
+    font-size: 2rem;
     border: none;
     width: 15%;
+    cursor: pointer;
 }
 
 #todoList {
