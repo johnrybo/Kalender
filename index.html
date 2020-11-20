@@ -24,10 +24,15 @@
         <h1 id="dayOfTheWeek"></h1>
         <h2 id="dateAndTime"></h2>
 
-        <form id="todoForm">
-            <input type="date" id="dateInput" placeholder="Date">
-            <input type="text" id="textInput" placeholder="Textytext...">
-            <button type="submit" id="addTodo">+</button>
+        <form id="todoForm" action="">
+
+            <input type="date" id="dateInput" placeholder="Date" required>
+
+            <div id="textAndButton">
+                <input type="text" id="textInput" placeholder="Textytext..." required>
+                <button type="submit" id="addTodo">+</button>
+            </div>
+
         </form>
         <ul id="todoList"></ul>
     </aside>

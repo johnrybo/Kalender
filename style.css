@@ -59,28 +59,47 @@ aside {
     text-align: center;
     background-color: #E6D7FF;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #todoForm {
     margin-top: 1rem;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #todoForm > * {
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
 }
 
 #dateInput {
     padding: .5rem;
+    width: 100%;
+    border: none;
+}
+
+#textAndButton {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #textInput {
     padding: .5rem;
     border: none;
+    width: 85%;
 }
 
 #addTodo {
     padding: .5rem;
     border: none;
+    width: 15%;
 }
 
 #todoList {
@@ -88,9 +107,10 @@ aside {
 }
 
 .todoListItemStyle {
-    color: purple;
+    color: black;
+    background-color: #F8F8F8;
     padding: .5rem;
-    border: solid 1px purple;
+    margin-bottom: .5rem;
 }
 
 main {
