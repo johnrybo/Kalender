@@ -2,19 +2,27 @@ window.addEventListener("load", main);
 
 function main() {
   fetchDaysFromApi();
-
-  // Visar aktuell dag, månad och tid men borde nog sättas i en egen funktion?
-  document.getElementById("dayOfTheWeek").innerHTML = today.getDay();
-  document.getElementById("dateAndTime").innerHTML = today.toLocaleString();
-
+  welcomeUser();
+  daysToString();
 }
+
 
 // Hämtar aktuell månad och år
 let today = new Date();
-let days = today.getDay(["Söndag","Måndag","Tisdag","Onsdag","Torsdag","Fredag","Lördag"]);
 let year = today.getFullYear();
 let month = today.getMonth() + 1;
 
+
+// Visar aktuellt datum 
+function welcomeUser() {
+  document.getElementById("dateAndTime").innerHTML = today.toLocaleString();
+}
+
+// Visar aktuell veckodag
+function daysToString() {
+  const daysOfWeek = ['Sunday', 'Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  document.getElementById('dayOfTheWeek').innerHTML = daysOfWeek[today.getDay()];
+}
 
 // Nånting
 async function fetchDaysFromApi() {
@@ -55,12 +63,5 @@ function buildCalendar(days) {
   }
 }
 
-//Försökte få den att skriva vilken dag det är, blir rätt i console-loggen
 
-/** function daysToString() {
-  const daysOfWeek = ['Sunday', 'Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  return daysOfWeek[today.getDay()]
-}
-
-console.log(daysToString()) */
 
