@@ -65,6 +65,7 @@ function buildCalendar(days) {
     for (const day of days.dagar) {
 
     let newDay = document.createElement("div");
+    newDay.classList.add('newDay');
     newDay.innerHTML = day.datum;
     main.append(newDay);
   }
