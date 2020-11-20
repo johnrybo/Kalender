@@ -2,18 +2,23 @@ window.addEventListener("load", main);
 
 function main() {
   fetchDaysFromApi();
-
-  // Visar aktuell dag, månad och tid men borde nog sättas i en egen funktion?
-  document.getElementById("dayOfTheWeek").innerHTML = today.getDay();
-  document.getElementById("dateAndTime").innerHTML = today.toLocaleString();
-
+  welcomeUser();
 }
+
 
 // Hämtar aktuell månad och år
 let today = new Date();
 let days = today.getDay(["Söndag","Måndag","Tisdag","Onsdag","Torsdag","Fredag","Lördag"]);
 let year = today.getFullYear();
 let month = today.getMonth() + 1;
+
+// Visar aktuell dag, månad och tid men borde nog sättas i en egen funktion?
+function welcomeUser() {
+  document.getElementById("dayOfTheWeek").innerHTML = today.getDay();
+  document.getElementById("dateAndTime").innerHTML = today.toLocaleString();
+  
+
+}
 
 
 // Nånting
