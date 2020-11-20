@@ -13,7 +13,7 @@ body {
 
 #calendarContainer {
     display: grid;
-    /*grid-template-rows: 5rem auto;*/
+    grid-template-rows: 5rem auto;
     grid-template-columns: 17rem auto;
     grid-template-areas: 
     "aside header"
