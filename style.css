@@ -16,13 +16,15 @@ body {
     /*box-shadow: 0 1rem 1rem lightgray;*/
 }
 
-header {
+header, p {
     grid-area: header;
     background-color: #F8F8F8;
     text-align: center;
     color: #A36BFF;
     padding-top: 1rem;
     margin-bottom: .5rem;
+    font-size: 2rem;
+    display: inline;
 }
 
 h1 {
