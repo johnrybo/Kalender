@@ -26,8 +26,26 @@ header {
 }
 
 h1 {
-    display: inline;
+    font-size: 5rem;
+    color: white;
+    font-weight: 200;
 }
+
+h2 {
+    color: #826CA6;
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 1rem;
+}
+
+h3 {
+    display: inline;
+    color: white;
+    font-weight: 200;
+    font-size: 1.8rem;
+}
+
+
 
 #nextMonth {
     cursor: pointer;
