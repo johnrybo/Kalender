@@ -49,16 +49,22 @@ async function goToNextMonth() {
 }
 
 // Bygger upp kalendern
-function buildCalendar(days) {
-  for (const day of days.dagar) {
 
-    
-   // console.log(day);
+function buildCalendar(days) {
+  let main = document.querySelector("main");
+  main.innerHTML = "";
+  
+  const weekday = days.dagar[0]["dag i vecka"]
+  //loop skapa tomma divvar för veckodagarna
+    for (let i = 0; i < weekday -1; i++) {
+      let emptyDay = document.createElement("div");
+      main.append(emptyDay);
+    }
+
+    for (const day of days.dagar) {
 
     let newDay = document.createElement("div");
     newDay.innerHTML = day.datum;
-
-    let main = document.querySelector("main");
     main.append(newDay);
   }
 }

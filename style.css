@@ -109,3 +109,8 @@ main div {
     font-size: .7rem;
     color: grey;
 }
+
+.weekday {
+    height: 2rem;
+    background-color: hotpink;
+}
