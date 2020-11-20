@@ -13,7 +13,7 @@ body {
 
 #calendarContainer {
     display: grid;
-    grid-template-rows: 5rem auto;
+    grid-template-rows: 7rem auto;
     grid-template-columns: 17rem auto;
     grid-template-areas: 
     "aside header"
@@ -44,6 +44,7 @@ header {
     flex-direction: row;
     justify-content: space-around;
     color: #826CA6;
+    padding: 1rem;
 
 }
 
