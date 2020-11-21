@@ -4,14 +4,14 @@ function main() {
   fetchDaysFromApi();
   welcomeUser();
   daysToString();
+  monthToString();
+  showYear();
 }
-
 
 // Hämtar aktuell månad och år
 let today = new Date();
 let year = today.getFullYear();
 let month = today.getMonth() + 1;
-
 
 // Visar aktuellt datum 
 function welcomeUser() {
@@ -31,6 +31,17 @@ async function fetchDaysFromApi() {
 
   let nextMonth = document.getElementById("nextMonth");
   nextMonth.addEventListener("click", goToNextMonth);
+}
+
+// Visar aktuell månad i header ovanför kalendern
+function monthToString() {
+  const monthOfYear = ['January', 'February', 'Mars', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  document.getElementById('monthInHeader').innerHTML = monthOfYear[today.getMonth()];
+}
+
+// Visar aktuellt år i header ovanför kalendern
+function showYear() {
+  document.getElementById("yearInHeader").innerHTML = today.getFullYear();
 }
 
 // Hämtar dagar från API
@@ -61,7 +72,6 @@ function buildCalendar(days) {
       emptyDay.style.backgroundColor = "white";
       main.append(emptyDay);
     }
-
     for (const day of days.dagar) {
 
     let newDay = document.createElement("div");
