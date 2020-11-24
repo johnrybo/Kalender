@@ -58,6 +58,7 @@ async function getDays(year, month) {
   let url = `https://sholiday.faboul.se/dagar/v2.1/${year}/${month}`;
   const result = await fetch(url);
   const data = await result.json();
+  console.log(data);
   return data;
 }
 
@@ -92,6 +93,7 @@ function buildCalendar() {
 
     newDay.append(newDayDate);
     newDay.append(todoCount);
+
     newDayDate.append(day.datum);
 
     if (todos.length > 0) {

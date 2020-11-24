@@ -25,7 +25,7 @@ function newListItem(event) {
       date: dateInput,
     });
   
-    // console.log(todosState);
+    console.log(todosState);
   
     let todoList = document.getElementById("todoList");
     let todoListItem = document.createElement("li");
