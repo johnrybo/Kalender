@@ -1,38 +1,39 @@
-window.addEventListener('load', main);
+window.addEventListener("load", main);
 
 function main() {
-
-    addEventListeners();
+  addEventListeners();
 }
 
-function addEventListeners(){
-
-    let addTodo = document.getElementById('addTodo');
-    addTodo.addEventListener('click', newListItem);
-
+function addEventListeners() {
+  let addTodo = document.getElementById("addTodo");
+  addTodo.addEventListener("click", newListItem);
 }
 
+const todosState = [];
+
+// Funktionen som körs när man klickar på +
 function newListItem(event) {
+  event.preventDefault();
 
-    event.preventDefault();
-    
-    let dateInput = document.getElementById('dateInput').value;
-    let dateTextNode = document.createTextNode(dateInput);
+  let dateInput = document.getElementById("dateInput").value;
+  let textInput = document.getElementById("textInput").value;
 
-    let textInput = document.getElementById("textInput").value;
-    let textNode = document.createTextNode(textInput);
-
-    let todoList = document.getElementById('todoList');
+  // Lägger till input i arrayen
+  if (dateInput !== '' || textInput !== '') {
+    todosState.push({
+      title: textInput,
+      date: dateInput,
+    });
+  
+    // console.log(todosState);
+  
+    let todoList = document.getElementById("todoList");
     let todoListItem = document.createElement("li");
-    todoListItem.classList.add('todoListItemStyle');
-    
-    todoList.appendChild(todoListItem);
-    todoListItem.appendChild(dateTextNode);
-    todoListItem.appendChild(textNode);
+    todoListItem.classList.add("todoListItemStyle");
+  
+    todoList.append(todoListItem);
+    todoListItem.innerHTML = dateInput + ' ' + textInput;
 
-    let newDay = document.querySelectorAll('.newDay');
-    if (newDay.innerHTML = dateTextNode) {
-        newDay.appendChild(textNode);
-    }
-
+    buildCalendar();
   }
+}

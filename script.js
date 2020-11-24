@@ -1,5 +1,7 @@
 window.addEventListener("load", main);
 
+let days;
+
 function main() {
   fetchDaysFromApi();
   welcomeUser();
@@ -13,6 +15,9 @@ let today = new Date();
 let year = today.getFullYear();
 let month = today.getMonth() + 1;
 
+
+// ----------- Kanske flytta dessa nedan till egen fil? (today.js)
+
 // Visar aktuellt datum 
 function welcomeUser() {
   document.getElementById("dateAndTime").innerHTML = today.toLocaleString();
@@ -22,15 +27,6 @@ function welcomeUser() {
 function daysToString() {
   const daysOfWeek = ['Sunday', 'Monday','Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   document.getElementById('dayOfTheWeek').innerHTML = daysOfWeek[today.getDay()];
-}
-
-// Nånting
-async function fetchDaysFromApi() {
-  let days = await getDays(year, month);
-  buildCalendar(days);
-
-  let nextMonth = document.getElementById("nextMonth");
-  nextMonth.addEventListener("click", goToNextMonth);
 }
 
 // Visar aktuell månad i header ovanför kalendern
@@ -44,6 +40,19 @@ function showYear() {
   document.getElementById("yearInHeader").innerHTML = today.getFullYear();
 }
 
+
+// ------------------------------------- KALENDERN ------------------------------------- 
+
+
+// Nånting
+async function fetchDaysFromApi() {
+  days = await getDays(year, month);
+  buildCalendar();
+
+  let nextMonth = document.getElementById("nextMonth");
+  nextMonth.addEventListener("click", goToNextMonth);
+}
+
 // Hämtar dagar från API
 async function getDays(year, month) {
   let url = `https://sholiday.faboul.se/dagar/v2.1/${year}/${month}`;
@@ -55,13 +64,12 @@ async function getDays(year, month) {
 // Går till nästa månad
 async function goToNextMonth() {
   month++;
-  let days = await getDays(year, month);
-  buildCalendar(days);
+  days = await getDays(year, month);
+  buildCalendar();
 }
 
 // Bygger upp kalendern
-
-function buildCalendar(days) {
+function buildCalendar() {
   let main = document.querySelector("main");
   main.innerHTML = "";
   
@@ -73,10 +81,23 @@ function buildCalendar(days) {
       main.append(emptyDay);
     }
     for (const day of days.dagar) {
+    
+    // Kolla igenom alla todos och räkna ihop antalet för aktuell dag
+    let todos = todosState.filter( (todo)=> todo.date === day.datum )
 
     let newDay = document.createElement("div");
-    newDay.classList.add('newDay');
-    newDay.innerHTML = day.datum;
+    let newDayDate = document.createElement('span');
+    let todoCount = document.createElement('span');
+    todoCount.style.fontSize = '1.5rem';
+
+    newDay.append(newDayDate);
+    newDay.append(todoCount);
+    newDayDate.append(day.datum);
+
+    if (todos.length > 0) {
+      todoCount.append(todos.length);
+    }
+
     main.append(newDay);
   }
 }
