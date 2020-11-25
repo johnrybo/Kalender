@@ -6,8 +6,8 @@ function main() {
   fetchDaysFromApi();
   welcomeUser();
   daysToString();
-  monthToString();
-  showYear();
+  monthToString(today.getMonth());
+  showYear(today.getFullYear());
 }
 
 // ------------------------------------- KALENDERN ------------------------------------- 
@@ -20,6 +20,7 @@ async function fetchDaysFromApi() {
 
   let nextMonth = document.getElementById("nextMonth");
   nextMonth.addEventListener("click", goToNextMonth);
+  
 }
 
 // Hämtar dagar från API
@@ -35,8 +36,21 @@ async function getDays(year, month) {
 async function goToNextMonth() {
   month++;
   days = await getDays(year, month);
+  monthToString(today.getMonth() +1);
   buildCalendar();
+  goToNextYear();
 }
+function goToNextYear(){
+ // om månaden är december så ska året ökas med 1
+ let monthInHeader = document.getElementById('monthInHeader');
+  if (monthInHeader.innerHTML === "January") {
+    year++;
+ }
+  if (monthInHeader.innerHTML === "December") {
+    month-11;
+ }
+}
+ 
 
 // Bygger upp kalendern
 function buildCalendar() {
