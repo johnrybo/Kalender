@@ -15,12 +15,12 @@ function welcomeUser() {
   }
   
   // Visar aktuell månad i header ovanför kalendern
-  function monthToString() {
+  function monthToString(month) {
     const monthOfYear = ['January', 'February', 'Mars', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    document.getElementById('monthInHeader').innerHTML = monthOfYear[today.getMonth()];
+    document.getElementById('monthInHeader').innerHTML = monthOfYear[month];
   }
   
   // Visar aktuellt år i header ovanför kalendern
-  function showYear() {
-    document.getElementById("yearInHeader").innerHTML = today.getFullYear();
+  function showYear(year) {
+    document.getElementById("yearInHeader").innerHTML = year;
   }
