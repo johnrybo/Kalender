@@ -30,9 +30,37 @@ function newListItem(event) {
     let todoList = document.getElementById("todoList");
     let todoListItem = document.createElement("li");
     todoListItem.classList.add("todoListItemStyle");
+    
+    // Nytt
+
+    let todoListText = document.createElement('span');
+    todoListText.innerHTML = textInput;
+
+    let todoListDate = document.createElement('span');
+    todoListDate.innerHTML = dateInput;
+
+    let removeButton = document.createElement('button');
+    removeButton.innerHTML = 'X';
+    removeButton.classList.add('removeButton');
   
-    todoList.append(todoListItem);
-    todoListItem.innerHTML = dateInput + ' ' + textInput;
+    todoList.appendChild(todoListItem);
+    todoListItem.appendChild(todoListDate);
+    todoListItem.appendChild(todoListText);
+    todoListItem.appendChild(removeButton);
+
+    removeButton.addEventListener('click', function() {
+
+      // Tar bort todo från listan
+      todoList.removeChild(todoListItem);
+
+      // Tar bort todo med index 0 från todosState
+      todosState.splice(0, 1);
+      console.log(todosState);
+
+      // Tar bort todo från kalendern
+      console.log(':(')
+
+    });
 
     buildCalendar();
   }
