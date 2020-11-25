@@ -11,6 +11,44 @@ function addEventListeners() {
 
 const todosState = [];
 
+function buildList() {
+  let todoList = document.getElementById("todoList");
+  let todoListItem = document.createElement("li");
+  todoListItem.classList.add("todoListItemStyle");
+  todoList.innerHTML = "";
+
+  for (const todo of todosState) {
+    let todoListText = document.createElement("span");
+    todoListText.innerHTML = todo.title;
+
+    let todoListDate = document.createElement("span");
+    todoListDate.innerHTML = todo.date;
+
+    let removeButton = document.createElement("button");
+    removeButton.innerHTML = "X";
+    removeButton.classList.add("removeButton");
+
+    todoList.append(todoListItem);
+    todoListItem.append(todoListDate);
+    todoListItem.append(todoListText);
+    todoListItem.append(removeButton);
+
+    removeButton.addEventListener("click", function (event) {
+      // Tar bort todo från listan
+      console.log(event.target);
+      event.target.parentElement.remove();
+
+      // Tar bort todo med index 0 från todosState
+      const index = todosState.indexOf(todo);
+      todosState.splice(index, 1);
+      console.log(todosState);
+
+      buildCalendar();
+      buildList();
+    });
+  }
+}
+
 // Funktionen som körs när man klickar på +
 function newListItem(event) {
   event.preventDefault();
@@ -19,49 +57,15 @@ function newListItem(event) {
   let textInput = document.getElementById("textInput").value;
 
   // Lägger till input i arrayen
-  if (dateInput !== '' || textInput !== '') {
+  if (dateInput !== "" || textInput !== "") {
     todosState.push({
       title: textInput,
       date: dateInput,
     });
-  
+
     console.log(todosState);
-  
-    let todoList = document.getElementById("todoList");
-    let todoListItem = document.createElement("li");
-    todoListItem.classList.add("todoListItemStyle");
-    
-    // Nytt
-
-    let todoListText = document.createElement('span');
-    todoListText.innerHTML = textInput;
-
-    let todoListDate = document.createElement('span');
-    todoListDate.innerHTML = dateInput;
-
-    let removeButton = document.createElement('button');
-    removeButton.innerHTML = 'X';
-    removeButton.classList.add('removeButton');
-  
-    todoList.appendChild(todoListItem);
-    todoListItem.appendChild(todoListDate);
-    todoListItem.appendChild(todoListText);
-    todoListItem.appendChild(removeButton);
-
-    removeButton.addEventListener('click', function() {
-
-      // Tar bort todo från listan
-      todoList.removeChild(todoListItem);
-
-      // Tar bort todo med index 0 från todosState
-      todosState.splice(0, 1);
-      console.log(todosState);
-
-      // Tar bort todo från kalendern
-      console.log(':(')
-
-    });
-
-    buildCalendar();
   }
+
+  buildCalendar();
+  buildList();
 }
