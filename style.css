@@ -142,7 +142,6 @@ aside {
 
 .todoListItemStyle {
     color: black;
-    background-color: #F8F8F8;
     padding: .5rem;
     margin-bottom: .5rem;
 }
@@ -157,6 +156,11 @@ aside {
     width: 1rem;
     height: 1rem;
     border: none;
+    cursor: pointer;
+}
+
+.editButton {
+    background-color: mediumturquoise;
     cursor: pointer;
 }
 
