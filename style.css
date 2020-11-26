@@ -152,7 +152,7 @@ ul {
     flex-direction: column;
     width: 100%;
     color: black;
-    background-color: #F8F8F8;
+    padding: .5rem;
     margin-bottom: .5rem;
 }
 
@@ -166,6 +166,11 @@ ul {
     height: 1rem;
     border: none;
     cursor: pointer;    
+}
+
+.editButton {
+    background-color: mediumturquoise;
+    cursor: pointer;
 }
 
 /* --------------------------- CALENDAR --------------------------- */
