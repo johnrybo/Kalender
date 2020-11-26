@@ -92,6 +92,12 @@ aside {
     align-items: center;
 }
 
+ul {
+    margin-bottom: 1rem;
+}
+
+
+
 /* --------------------------- TO DO LIST --------------------------- */
 
 #todoForm {
@@ -138,9 +144,13 @@ aside {
 
 #todoList {
     list-style-type: none;
+    
 }
 
 .todoListItemStyle {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     color: black;
     padding: .5rem;
     margin-bottom: .5rem;
@@ -152,11 +162,10 @@ aside {
 
 .removeButton {
     color: white;
-    background-color: red;
-    width: 1rem;
+    background-color: rgb(24, 19, 19);
     height: 1rem;
     border: none;
-    cursor: pointer;
+    cursor: pointer;    
 }
 
 .editButton {
