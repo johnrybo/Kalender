@@ -34,23 +34,44 @@ async function getDays(year, month) {
 
 // Går till nästa månad
 async function goToNextMonth() {
+  
+  let monthInHeader = document.getElementById('monthInHeader');
+  if (monthInHeader.innerHTML === 'December') {
+  
+  month-10;
+  days = await getDays(year, month);
+  monthToString(today.getMonth() -10);
+  goToNextYear();
+
+  } else {
   month++;
   days = await getDays(year, month);
   monthToString(today.getMonth() +1);
+  }
+
   buildCalendar();
-  goToNextYear();
 }
-function goToNextYear(){
+
+async function goToNextYear(){
  // om månaden är december så ska året ökas med 1
  let monthInHeader = document.getElementById('monthInHeader');
-  if (monthInHeader.innerHTML === "January") {
+
+  if ( monthInHeader.innerHTML === "January") {
     year++;
+    month -11;
+    days = await getDays(year++, month -11);
+    showYear(today.getFullYear() +1);
+    
+ } else {
+   year;
+   month;
+   days = await getDays(year, month);
+   showYear(today.getFullYear());
  }
-  if (monthInHeader.innerHTML === "December") {
-    month-11;
- }
+
+ buildCalendar();
+
 }
- 
 
 // Bygger upp kalendern
 function buildCalendar() {
