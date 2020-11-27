@@ -10,8 +10,11 @@ function main() {
 
 function getLocalStorage() {
   const data = localStorage.getItem("data");
-  todosState = JSON.parse(data);
-  console.log(data);
+  if (data !== null) {
+    todosState = JSON.parse(data);
+    console.log(data);
+  }
+  
 }
 function updateLocalStorage() {
   localStorage.setItem("data", JSON.stringify(todosState));
