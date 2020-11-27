@@ -45,6 +45,11 @@ function buildList() {
     let todoListDate = document.createElement("span");
     todoListDate.innerHTML = todo.date;
 
+    let textAndDate = document.createElement("div");
+    textAndDate.classList.add('textAndDate');
+    let buttons = document.createElement('div');
+    buttons.classList.add('buttons');
+
     let removeButton = document.createElement("button");
     removeButton.innerHTML = "X";
     removeButton.classList.add("removeButton");
@@ -55,10 +60,17 @@ function buildList() {
     editButton.classList.add("editButton");
 
     todoList.append(todoListItem);
-    todoListItem.append(todoListDate);
+    /**todoListItem.append(todoListDate);
     todoListItem.append(todoListText);
     todoListItem.append(removeButton);
-    todoListItem.append(editButton);
+    todoListItem.append(editButton);*/
+    todoListItem.append(textAndDate);
+    todoListItem.append(buttons);
+    textAndDate.append(todoListText);
+    textAndDate.append(todoListDate);
+    buttons.append(removeButton);
+    buttons.append(editButton);
+
 
     removeButton.addEventListener("click", function (event) {
       // Tar bort todo från listan
@@ -81,9 +93,11 @@ function buildList() {
       //console.log(todosState[index].title);
 
       let editInput = document.createElement("input");
+      editInput.classList.add('editInput');
       editInput.type = "text";
 
       let submitButton = document.createElement("button");
+      submitButton.classList.add('submitbutton');
       submitButton.innerHTML = "Submit";
 
       let aside = document.querySelector("aside");

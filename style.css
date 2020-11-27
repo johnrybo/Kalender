@@ -144,6 +144,7 @@ ul {
 
 #todoList {
     list-style-type: none;
+    margin-bottom: 0;
     
 }
 
@@ -151,26 +152,67 @@ ul {
     display: flex;
     flex-direction: column;
     width: 100%;
-    color: black;
+    color: rgb(119, 119, 119);
     padding: .5rem;
     margin-bottom: .5rem;
+}
+
+.edittext {
+    display: flex;
+    justify-content: space-around;
 }
 
 .todoListItemStyle > * {
     margin: .5rem;
 }
 
+.textAndDate {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+}
+
+.editInput {
+    border: none;
+    height: 1.4rem;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.2rem;
+}
+
+.submitbutton {
+    margin: 0.5rem;
+    border: none;
+    border-radius: 15%;
+    height: 1.5rem;
+    width: 3rem;
+    background-color: white;
+}
+
 .removeButton {
     color: white;
     background-color: rgb(24, 19, 19);
-    height: 1rem;
+    height: 1.2rem;
+    width: 2rem;
     border: none;
-    cursor: pointer;    
+    cursor: pointer; 
+    border-radius: 15%;
+    border: none;
+    margin: 0.2rem;
 }
 
 .editButton {
-    background-color: mediumturquoise;
+    background-color: rgb(255, 255, 255);
     cursor: pointer;
+    width: 2rem;
+    border-radius: 15%;
+    border: none;
+    margin: 0.2rem;
+
 }
 
 /* --------------------------- CALENDAR --------------------------- */
