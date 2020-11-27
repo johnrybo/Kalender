@@ -1,15 +1,26 @@
 window.addEventListener("load", main);
 
+let todosState = [];
+
 function main() {
   addEventListeners();
+  getLocalStorage();
+  buildList();
+}
+
+function getLocalStorage() {
+  const data = localStorage.getItem("data");
+  todosState = JSON.parse(data);
+  console.log(data);
+}
+function updateLocalStorage() {
+  localStorage.setItem("data", JSON.stringify(todosState));
 }
 
 function addEventListeners() {
   let addTodo = document.getElementById("addTodo");
   addTodo.addEventListener("click", newListItem);
 }
-
-const todosState = [];
 
 // Funktionen som körs när man klickar på +
 function newListItem(event) {
@@ -24,9 +35,10 @@ function newListItem(event) {
       title: textInput,
       date: dateInput,
     });
-
-    console.log(todosState);
   }
+
+  // Sparar todo till localstorage
+  updateLocalStorage();
 
   buildCalendar();
   buildList();
@@ -70,6 +82,9 @@ function buildList() {
       todosState.splice(index, 1);
       //console.log(todosState);
 
+      // lägg till todo i localstorage
+      updateLocalStorage();
+
       // Uppdaterar statet
       buildCalendar();
       buildList();
@@ -90,14 +105,15 @@ function buildList() {
       aside.append(editInput);
       aside.append(submitButton);
 
-    /**
-     * Ändrar texten på en todo
-     */
+      /**
+       * Ändrar texten på en todo
+       */
       submitButton.addEventListener("click", function () {
         todosState[index].title = editInput.value;
         //console.log(todosState[index].title)
         //console.log(todosState);
 
+        updateLocalStorage();
         // Uppdaterar statet
         buildCalendar();
         buildList();
