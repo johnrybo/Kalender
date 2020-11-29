@@ -75,7 +75,7 @@ header {
 
 }
 
-#nextMonth {
+#previousMonth, #nextMonth {
     cursor: pointer;
 }
 
