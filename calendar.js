@@ -97,7 +97,6 @@ function buildCalendar() {
 
     newDay.append(newDayDate);
     newDay.append(todoCount);
-
     newDayDate.append(day.datum);
 
     if (todos.length > 0) {
@@ -107,6 +106,3 @@ function buildCalendar() {
     main.append(newDay);
   }
 }
-
-
-

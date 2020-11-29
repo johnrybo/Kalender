@@ -238,3 +238,6 @@ main div {
     flex-direction: column;
 }
 
+main div:hover {
+    background-color: yellow;
+}
