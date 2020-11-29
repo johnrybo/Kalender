@@ -96,6 +96,7 @@ function buildCalendar() {
     let newDayDate = document.createElement('span');
     let todoCount = document.createElement('span');
     todoCount.style.fontSize = '1.5rem';
+    newDay.classList.add('newday');
 
     newDay.append(newDayDate);
     newDay.append(todoCount);
