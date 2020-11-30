@@ -106,6 +106,14 @@ function buildCalendar() {
       todoCount.append(todos.length);
     }
 
+    let todayBg = `${year}-${month}-${today.getDate()}`;
+    if (newDayDate.innerHTML === todayBg) {
+      newDay.style.backgroundColor = "#A36BFF";
+      newDayDate.style.color = "white";
+      newDayDate.style.fontWeight = "bold";
+      todoCount.style.color = "#E6D7FF";
+    }
+
     main.append(newDay);
   }
 }

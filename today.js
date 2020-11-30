@@ -24,3 +24,4 @@ function welcomeUser() {
   function showYear(year) {
     document.getElementById("yearInHeader").innerHTML = year;
   }
+  

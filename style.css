@@ -239,12 +239,6 @@ main div {
     flex-direction: column;
 }
 
-/*
-main div:hover {
-    background-color: yellow;
-}
-*/
-
 .newday:hover {
     background-color: #E6D7FF;
 }
