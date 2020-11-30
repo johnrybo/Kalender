@@ -1,7 +1,7 @@
 // Hämtar aktuell månad och år
 let today = new Date();
 let year = today.getFullYear();
-let month = today.getMonth() + 1;
+let month = today.getMonth() +1;
 
 // Visar aktuellt datum 
 function welcomeUser() {
@@ -16,7 +16,7 @@ function welcomeUser() {
   
   // Visar aktuell månad i header ovanför kalendern
   function monthToString(month) {
-    const monthOfYear = ['January', 'February', 'Mars', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const monthOfYear = ['', 'January', 'February', 'Mars', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     document.getElementById('monthInHeader').innerHTML = monthOfYear[month];
   }
   

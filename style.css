@@ -75,7 +75,7 @@ header {
 
 }
 
-#nextMonth {
+#previousMonth, #nextMonth {
     cursor: pointer;
 }
 
@@ -152,7 +152,7 @@ ul {
     display: flex;
     flex-direction: column;
     width: 100%;
-    color: rgb(119, 119, 119);
+    color: #826CA6;
     padding: .5rem;
     margin-bottom: .5rem;
 }
@@ -194,8 +194,8 @@ ul {
 }
 
 .removeButton {
-    color: white;
-    background-color: rgb(24, 19, 19);
+    color: rgb(192, 192, 192);
+    background-color: rgb(255, 255, 255);
     height: 1.2rem;
     width: 2rem;
     border: none;
@@ -207,6 +207,7 @@ ul {
 
 .editButton {
     background-color: rgb(255, 255, 255);
+    color: #8e75b8;
     cursor: pointer;
     width: 2rem;
     border-radius: 15%;
@@ -238,6 +239,12 @@ main div {
     flex-direction: column;
 }
 
+/*
 main div:hover {
     background-color: yellow;
+}
+*/
+
+.newday:hover {
+    background-color: #E6D7FF;
 }
