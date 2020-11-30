@@ -115,14 +115,17 @@ function buildList() {
       buildList();
     });
 
-    // Ändra i todo-listan
+    // Ändra text och datum i todo-listan
     editButton.addEventListener("click", function () {
       const index = todosState.indexOf(todo);
       //console.log(todosState[index].title);
 
       let editInput = document.createElement("input");
+      let editDate = document.createElement("input");
       editInput.classList.add('editInput');
       editInput.type = "text";
+      editDate.classList.add('editDate');
+      editDate.type = "date";
 
       let submitButton = document.createElement("button");
       submitButton.classList.add('submitbutton');
@@ -130,13 +133,15 @@ function buildList() {
 
       let aside = document.querySelector("aside");
       aside.append(editInput);
+      aside.append(editDate);
       aside.append(submitButton);
 
       /**
-       * Ändrar texten på en todo
+       * Ändrar texten och datumet på en todo
        */
       submitButton.addEventListener("click", function () {
         todosState[index].title = editInput.value;
+        todosState[index].date = editDate.value;
         //console.log(todosState[index].title)
         //console.log(todosState);
 
@@ -148,6 +153,7 @@ function buildList() {
         // Döljer submit-fältet och submit-knappen
         submitButton.style.display = "none";
         editInput.style.display = "none";
+        editDate.style.display = "none";
       });
 
       // Uppdaterar statet
