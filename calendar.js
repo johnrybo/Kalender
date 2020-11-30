@@ -13,25 +13,25 @@ function main() {
 // ------------------------------------- KALENDERN ------------------------------------- 
 
 
-// Nånting
+/** Returnerar ett löfte */
 async function fetchDaysFromApi() {
   days = await getDays(year, month);
   buildCalendar();
 
-  console.log(month)
+  // Går till nästa månad när man klickar på högerpilen
   let nextMonth = document.getElementById("nextMonth");
   nextMonth.addEventListener("click", goToNextMonth);
 
+  // Går till föregående månad när man klickar på vänsterpilen
   let prevousMonth = document.getElementById('previousMonth');
   prevousMonth.addEventListener('click', goToPreviousMonth);
 }
 
-// Hämtar dagar från API
+/** Hämtar dagar från API */
 async function getDays(year, month) {
   let url = `https://sholiday.faboul.se/dagar/v2.1/${year}/${month}`;
   const result = await fetch(url);
   const data = await result.json();
-  console.log(data);
   return data;
 }
 
@@ -54,7 +54,7 @@ async function goToPreviousMonth() {
   }
 }
 
-// Går till nästa månad
+/** Går till nästa månad */
 async function goToNextMonth() {
 
   if (month == 12) {
@@ -75,7 +75,7 @@ async function goToNextMonth() {
   }
 }
 
-// Bygger upp kalendern
+/**  Bygger upp kalendern */
 function buildCalendar() {
 
   let main = document.querySelector("main");
@@ -92,7 +92,7 @@ function buildCalendar() {
   
   for (const day of days.dagar) {
 
-    // Kolla igenom alla todos och räkna ihop antalet för aktuell dag
+    // Kollar igenom alla todos och räknar ihop antalet för aktuell dag
     let todos = todosState.filter((todo) => todo.date === day.datum)
 
     let newDay = document.createElement("div");
@@ -101,7 +101,7 @@ function buildCalendar() {
     let holiday = document.createElement('span');
     todoCount.style.fontSize = '1.5rem';
     newDay.classList.add('newday');
-    holiday.style.color = "maroon";
+    holiday.classList.add('holiday');
 
     newDay.append(newDayDate);
     newDay.append(todoCount);
@@ -127,18 +127,6 @@ function buildCalendar() {
       newDayDate.style.color = "white";
       newDayDate.style.fontWeight = "bold";
       todoCount.style.color = "#E6D7FF";
-
-      /*
-      newDay.addEventListener("click", function() {
-        
-        for (const todo of todosState) {
-      
-          if (newDayDate.innerHTML !== todo.date){
-            todoList.style.display = "none";
-          }
-        } 
-        })
-      */
 
     }
 

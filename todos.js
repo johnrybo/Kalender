@@ -2,35 +2,38 @@ window.addEventListener("load", main);
 
 let todosState = [];
 
+/** Kör dessa funktioner i main */
 function main() {
   addEventListeners();
   getLocalStorage();
   buildList();
 }
 
+/** Sparar todos till LocalStorage */
 function getLocalStorage() {
   const data = localStorage.getItem("data");
   if (data !== null) {
     todosState = JSON.parse(data);
-    console.log(data);
   }
-  
 }
+
 function updateLocalStorage() {
   localStorage.setItem("data", JSON.stringify(todosState));
 }
 
+/** Länkar till knappen som lägger till todo */
 function addEventListeners() {
   let addTodo = document.getElementById("addTodo");
   addTodo.addEventListener("click", newListItem);
 }
 
-// Funktionen som körs när man klickar på +
+/** Funktionen som körs när man klickar på + */
 function newListItem(event) {
   event.preventDefault();
 
   let dateInput = document.getElementById("dateInput").value;
   let textInput = document.getElementById("textInput").value;
+
 
   // Lägger till input i arrayen
   if (dateInput !== "" || textInput !== "") {
@@ -40,23 +43,22 @@ function newListItem(event) {
     });
   }
 
-  // Sorterar todo-listan i datumordning
+  // Sorterar todolistan i datumordning
   todosState.sort((a, b) => {
     if (a.date > b.date) {
-        return 1;
+      return 1;
     } else {
-        return -1;
+      return -1;
     }
   })
-  //console.log(todosState);
 
   // Sparar todo till localstorage
   updateLocalStorage();
-
   buildCalendar();
   buildList();
 }
 
+/** Bygger och skapar todos med datum och text, i todolistan */
 function buildList() {
   let todoList = document.getElementById("todoList");
   let todoListItem = document.createElement("li");
@@ -85,10 +87,6 @@ function buildList() {
     editButton.classList.add("editButton");
 
     todoList.append(todoListItem);
-    /**todoListItem.append(todoListDate);
-    todoListItem.append(todoListText);
-    todoListItem.append(removeButton);
-    todoListItem.append(editButton);*/
     todoListItem.append(textAndDate);
     todoListItem.append(buttons);
     textAndDate.append(todoListText);
@@ -96,17 +94,15 @@ function buildList() {
     buttons.append(removeButton);
     buttons.append(editButton);
 
+    //Tar bort todo från todolistan 
     removeButton.addEventListener("click", function (event) {
-      // Tar bort todo från listan
-      //console.log(event.target);
       event.target.parentElement.remove();
 
       // Tar bort todo med index 0 från todosState
       const index = todosState.indexOf(todo);
       todosState.splice(index, 1);
-      //console.log(todosState);
 
-      // lägg till todo i localstorage
+      // Lägger till todo i localstorage
       updateLocalStorage();
 
       // Uppdaterar statet
@@ -114,10 +110,9 @@ function buildList() {
       buildList();
     });
 
-    // Ändra text och datum i todo-listan
+    /** Ändrar text och datum i todo-listan */
     editButton.addEventListener("click", function () {
       const index = todosState.indexOf(todo);
-      //console.log(todosState[index].title);
 
       let editInput = document.createElement("input");
       let editDate = document.createElement("input");
@@ -135,17 +130,13 @@ function buildList() {
       aside.append(editDate);
       aside.append(submitButton);
 
-      /**
-       * Ändrar texten och datumet på en todo
-       */
+      /** Ändrar texten och datumet på en todo */
       submitButton.addEventListener("click", function () {
         todosState[index].title = editInput.value;
         todosState[index].date = editDate.value;
-        //console.log(todosState[index].title)
-        //console.log(todosState);
 
         updateLocalStorage();
-        // Uppdaterar statet
+        // Uppdaterar tillståndet
         buildCalendar();
         buildList();
 
@@ -155,7 +146,7 @@ function buildList() {
         editDate.style.display = "none";
       });
 
-      // Uppdaterar statet
+      // Uppdaterar tillståndet
       buildCalendar();
       buildList();
     });
