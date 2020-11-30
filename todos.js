@@ -96,7 +96,6 @@ function buildList() {
     buttons.append(removeButton);
     buttons.append(editButton);
 
-
     removeButton.addEventListener("click", function (event) {
       // Tar bort todo från listan
       //console.log(event.target);
