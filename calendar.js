@@ -95,12 +95,18 @@ function buildCalendar() {
     let newDay = document.createElement("div");
     let newDayDate = document.createElement('span');
     let todoCount = document.createElement('span');
+    let holiday = document.createElement('span');
     todoCount.style.fontSize = '1.5rem';
     newDay.classList.add('newday');
+    holiday.style.color = "maroon";
 
     newDay.append(newDayDate);
     newDay.append(todoCount);
+    newDay.append(holiday);
     newDayDate.append(day.datum);
+    if (day.helgdag !== undefined) {
+      holiday.append(day.helgdag);
+    }
 
     if (todos.length > 0) {
       todoCount.append(todos.length);
