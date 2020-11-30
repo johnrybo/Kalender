@@ -221,6 +221,7 @@ ul {
 main {
     grid-area: main;
     height: 100%;
+    width: 100%;
     gap: .5rem;
     background-color: white;
     display: grid;
@@ -228,7 +229,8 @@ main {
 }
 
 main div {
-    height: 4rem;
+    height: 6rem;
+    width: 6rem;
     background-color: #F8F8F8;
     padding: .5rem;
     font-size: .7rem;

@@ -6,7 +6,7 @@ function main() {
   fetchDaysFromApi();
   welcomeUser();
   daysToString();
-  monthToString(today.getMonth() +1);
+  monthToString(today.getMonth() + 1);
   showYear(today.getFullYear());
 }
 
@@ -37,7 +37,7 @@ async function getDays(year, month) {
 
 async function goToPreviousMonth() {
   if (month == 1) {
-    year = year -1;
+    year = year - 1;
     month = month + 11;
     days = await getDays(year, month);
 
@@ -77,16 +77,19 @@ async function goToNextMonth() {
 
 // Bygger upp kalendern
 function buildCalendar() {
+
   let main = document.querySelector("main");
   main.innerHTML = "";
 
   const weekday = days.dagar[0]["dag i vecka"]
-  //loop skapa tomma divvar för veckodagarna
+
+  //loop skapar tomma divvar för veckodagarna innan aktuell månad börjar
   for (let i = 0; i < weekday - 1; i++) {
     let emptyDay = document.createElement("div");
     emptyDay.style.backgroundColor = "white";
     main.append(emptyDay);
   }
+  
   for (const day of days.dagar) {
 
     // Kolla igenom alla todos och räkna ihop antalet för aktuell dag
@@ -104,19 +107,10 @@ function buildCalendar() {
     newDay.append(todoCount);
     newDay.append(holiday);
     newDayDate.append(day.datum);
+
     if (day.helgdag !== undefined) {
       holiday.append(day.helgdag);
     }
-
-    newDay.addEventListener("click", function() {
-      
-      for (const todo of todosState) {
-     
-        if (newDayDate.innerHTML !== todo.date){
-          todoList.style.display = "none";
-        }
-      } 
-      })
 
     if (todos.length > 0) {
       todoCount.append(todos.length);
@@ -124,7 +118,7 @@ function buildCalendar() {
 
     let todayBg = new Date();
     let todayBgYear = todayBg.getFullYear();
-    let todayBgMonth = todayBg.getMonth() +1;
+    let todayBgMonth = todayBg.getMonth() + 1;
     let todayBgDay = todayBg.getDate();
     let todayBgString = `${todayBgYear}-${todayBgMonth}-${todayBgDay}`;
 
@@ -134,7 +128,18 @@ function buildCalendar() {
       newDayDate.style.fontWeight = "bold";
       todoCount.style.color = "#E6D7FF";
 
+      /*
+      newDay.addEventListener("click", function() {
+        
+        for (const todo of todosState) {
       
+          if (newDayDate.innerHTML !== todo.date){
+            todoList.style.display = "none";
+          }
+        } 
+        })
+      */
+
     }
 
     main.append(newDay);
