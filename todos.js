@@ -43,7 +43,7 @@ function newListItem(event) {
     });
   }
 
-  // Sorterar todolistan i datumordning
+  // Sorterar todolistan i datumordning 
   todosState.sort((a, b) => {
     if (a.date > b.date) {
       return 1;
@@ -80,6 +80,10 @@ function buildList() {
     let removeButton = document.createElement("button");
     removeButton.innerHTML = "X";
     removeButton.classList.add("removeButton");
+
+    // Nollställer datum och inputfält när man har klickat på +
+    textInput.value = "";
+    dateInput.value = "";
 
     // Skapar en edit-knapp
     let editButton = document.createElement("button");
