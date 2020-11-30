@@ -108,6 +108,16 @@ function buildCalendar() {
       holiday.append(day.helgdag);
     }
 
+    newDay.addEventListener("click", function() {
+      
+      for (const todo of todosState) {
+     
+        if (newDayDate.innerHTML !== todo.date){
+          todoList.style.display = "none";
+        }
+      } 
+      })
+
     if (todos.length > 0) {
       todoCount.append(todos.length);
     }
