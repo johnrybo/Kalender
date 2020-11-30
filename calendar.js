@@ -122,12 +122,19 @@ function buildCalendar() {
       todoCount.append(todos.length);
     }
 
-    let todayBg = `${year}-${month}-${today.getDate()}`;
-    if (newDayDate.innerHTML === todayBg) {
+    let todayBg = new Date();
+    let todayBgYear = todayBg.getFullYear();
+    let todayBgMonth = todayBg.getMonth() +1;
+    let todayBgDay = todayBg.getDate();
+    let todayBgString = `${todayBgYear}-${todayBgMonth}-${todayBgDay}`;
+
+    if (newDayDate.innerHTML === todayBgString) {
       newDay.style.backgroundColor = "#A36BFF";
       newDayDate.style.color = "white";
       newDayDate.style.fontWeight = "bold";
       todoCount.style.color = "#E6D7FF";
+
+      
     }
 
     main.append(newDay);
