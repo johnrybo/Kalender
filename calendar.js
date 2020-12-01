@@ -12,7 +12,6 @@ function main() {
 
 // ------------------------------------- KALENDERN ------------------------------------- 
 
-
 /** Returnerar ett löfte */
 async function fetchDaysFromApi() {
   days = await getDays(year, month);
@@ -35,6 +34,7 @@ async function getDays(year, month) {
   return data;
 }
 
+/** Går till föregående månad */
 async function goToPreviousMonth() {
   if (month == 1) {
     year = year - 1;
@@ -80,7 +80,6 @@ function buildCalendar() {
 
   let main = document.querySelector("main");
   main.innerHTML = "";
-
   const weekday = days.dagar[0]["dag i vecka"]
 
   //loop skapar tomma divvar för veckodagarna innan aktuell månad börjar
@@ -89,7 +88,7 @@ function buildCalendar() {
     emptyDay.style.backgroundColor = "white";
     main.append(emptyDay);
   }
-  
+
   for (const day of days.dagar) {
 
     // Kollar igenom alla todos och räknar ihop antalet för aktuell dag
@@ -108,19 +107,29 @@ function buildCalendar() {
     newDay.append(holiday);
     newDayDate.append(day.datum);
 
+    // Lägger till helgdagar
     if (day.helgdag !== undefined) {
       holiday.append(day.helgdag);
     }
 
+    // Lägger till siffra för antal todos per dag
     if (todos.length > 0) {
       todoCount.append(todos.length);
     }
-
+    
+    // Lägger till bakgrund för dagens datum i kalendern
     let todayBg = new Date();
     let todayBgYear = todayBg.getFullYear();
     let todayBgMonth = todayBg.getMonth() + 1;
     let todayBgDay = todayBg.getDate();
+
+    // Lägger till en nolla om dagens datum är 1-9
+    if (todayBgDay < 10) {
+      todayBgDay = '0' + todayBgDay;
+    }
+
     let todayBgString = `${todayBgYear}-${todayBgMonth}-${todayBgDay}`;
+    console.log(todayBgString);
 
     if (newDayDate.innerHTML === todayBgString) {
       newDay.style.backgroundColor = "#A36BFF";

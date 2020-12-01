@@ -129,10 +129,15 @@ function buildList() {
       submitButton.classList.add('submitbutton');
       submitButton.innerHTML = "Submit";
 
+      let removeEdit = document.createElement("button");
+      removeEdit.innerHTML = "X";
+      removeEdit.classList.add("removeButton");
+
       let aside = document.querySelector("aside");
       aside.append(editInput);
       aside.append(editDate);
       aside.append(submitButton);
+      aside.append(removeEdit);
 
       /** Ändrar texten och datumet på en todo */
       submitButton.addEventListener("click", function () {
@@ -149,6 +154,13 @@ function buildList() {
         editInput.style.display = "none";
         editDate.style.display = "none";
       });
+
+      removeEdit.addEventListener('click', function() {
+        removeEdit.style.display = "none";
+        submitButton.style.display = "none";
+        editInput.style.display = "none";
+        editDate.style.display = "none";
+      })
 
       // Uppdaterar tillståndet
       buildCalendar();
