@@ -153,6 +153,7 @@ function buildList() {
         submitButton.style.display = "none";
         editInput.style.display = "none";
         editDate.style.display = "none";
+        removeEdit.style.display = "none";
       });
 
       removeEdit.addEventListener('click', function() {
