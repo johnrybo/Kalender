@@ -1,3 +1,3 @@
 # miniprojekt
 
-Demo: https://johnrybo.github.io/kalender/
+Demo: https://johnrybo.github.io/Kalender/
