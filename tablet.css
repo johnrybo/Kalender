@@ -1,32 +1,6 @@
-@media (max-width: 1104px) {
-  #calendarContainer {
-    width: 100%;
-
-    display: grid;
-    grid-template-rows: 7rem auto;
-    grid-template-columns: 17rem auto;
-    grid-template-areas:
-      "aside header"
-      "aside main";
-    font-family: "Roboto", sans-serif;
-    box-shadow: 0 1rem 1rem lightgray;
-  }
+@media (max-width: 1000px) {
 
   main div {
     width: auto;
-    background-color: #f8f8f8;
-    padding: 0.5rem;
-    font-size: 0.7rem;
-    color: grey;
-    text-align: center;
-
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-@media (max-height: 824px) {
-  body {
-    align-items: unset;
   }
 }

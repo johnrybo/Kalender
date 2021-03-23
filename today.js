@@ -4,7 +4,9 @@ let year = today.getFullYear();
 let month = today.getMonth() + 1;
 
 /** Visar aktuellt datum */
+
 function welcomeUser() {
+  let today = new Date();
   document.getElementById("dateAndTime").innerHTML = today.toLocaleString();
 }
 
