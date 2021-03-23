@@ -4,7 +4,7 @@ let days;
 
 function main() {
   fetchDaysFromApi();
-  welcomeUser();
+  setInterval(welcomeUser, 1000);
   daysToString();
   monthToString(today.getMonth() + 1);
   showYear(today.getFullYear());
