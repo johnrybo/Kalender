@@ -1,3 +1,3 @@
 # miniprojekt
 
-Demo: https://johnrybo.github.io/Kalender/
+Demo: https://jml-calendar.netlify.app/
